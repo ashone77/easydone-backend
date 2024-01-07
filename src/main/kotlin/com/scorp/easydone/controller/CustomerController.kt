@@ -1,7 +1,7 @@
 package com.scorp.easydone.controller
 
-import com.scorp.easydone.model.CreateTaskRequest
-import com.scorp.easydone.services.TaskService
+import com.scorp.easydone.model.CreateCustomerRequest
+import com.scorp.easydone.services.CustomerService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
@@ -9,15 +9,16 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-@RequestMapping("/api/task/")
-class TaskController(
-    @Autowired val taskService: TaskService
+@RequestMapping("/api/customer/")
+class CustomerController(
+    @Autowired val customerService: CustomerService
 ) {
 
     @PostMapping("/create")
-    fun createTask(
-        @RequestBody createTaskRequest: CreateTaskRequest
+    fun createCustomer(
+        @RequestBody createCustomerRequest: CreateCustomerRequest
     ): String {
-      return taskService.createTask(createTaskRequest)
+        return customerService.createCustomer(createCustomerRequest)
     }
+
 }

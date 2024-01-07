@@ -15,4 +15,4 @@ data class Task(
     @ManyToOne
     @JoinColumn(name = "customer_id")
     val customer: Customer
-)
+): BaseEntity()

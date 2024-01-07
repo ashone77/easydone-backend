@@ -7,7 +7,7 @@ import jakarta.persistence.*
 data class Customer(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Int,
+    val id: Int? = null,
     val username: String,
     val password: String,
     val emailId: String,
@@ -15,4 +15,4 @@ data class Customer(
     val lastName: String,
     @OneToMany(mappedBy = "customer", cascade = [CascadeType.ALL], fetch = FetchType.LAZY)
     val tasks: List<Task>? = null
-)
+) : BaseEntity()
