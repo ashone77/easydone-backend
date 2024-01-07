@@ -1,17 +1,18 @@
 package com.scorp.easydone.entities
 
-import jakarta.persistence.Entity
-import jakarta.persistence.Table
-import org.springframework.data.annotation.Id
+import jakarta.persistence.*
 
 @Entity
 @Table(name="easydone_customer", schema = "easydone")
 data class Customer(
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    val id: Int,
     val username: String,
     val password: String,
     val emailId: String,
     val firstName: String,
     val lastName: String,
-    val Task: List<Task>? = null
+    @OneToMany(mappedBy = "customer", cascade = [CascadeType.ALL], fetch = FetchType.LAZY)
+    val tasks: List<Task>? = null
 )
