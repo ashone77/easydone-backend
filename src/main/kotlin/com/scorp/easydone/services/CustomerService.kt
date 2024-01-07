@@ -19,6 +19,7 @@ class CustomerService(
             firstName = request.firstName,
             lastName = request.lastName
         )
+        customer.validate()
         customerRepo.save(customer)
         return "Customer Created Successfully."
     }
