@@ -1,7 +1,6 @@
 package com.scorp.easydone.entities
 
 import jakarta.persistence.*
-import java.util.*
 
 @Entity
 @Table(name = "easydone_task", schema = "easydone")
