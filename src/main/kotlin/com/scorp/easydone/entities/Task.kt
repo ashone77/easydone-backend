@@ -9,7 +9,7 @@ data class Task(
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Int? = null,
     val title: String,
-    val description: String?,
+    val description: String,
     val status: String,
     @ManyToOne
     @JoinColumn(name = "customer_id")
